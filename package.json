@@ -1,0 +1,63 @@
+{
+  "name": "@chubbyjs/chubbyjs-pino-psr",
+  "version": "1.0.0",
+  "description": "A brigde from pino to psr-log.",
+  "keywords": [
+    "chubbyjs",
+    "container",
+    "psr-11"
+  ],
+  "author": "Dominik Zogg",
+  "license": "MIT",
+  "repository": "chubbyjs/chubbyjs-pino-psr",
+  "scripts": {
+    "cs-fix": "prettier --write src tests",
+    "cs": "prettier --check src tests",
+    "test": "jest",
+    "infection": "stryker run",
+    "build": "tsc",
+    "prepare": "rm -Rf dist && npm run build && npm run cs && npm run test"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 100
+      }
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "@chubbyjs/psr-log": "^1.0.0",
+    "@types/pino": "^6.3.11",
+    "pino": "^6.13.2"
+  },
+  "devDependencies": {
+    "@chubbyjs/chubbyjs-mock": "^1.1.0",
+    "@stryker-mutator/core": "^5.3.0",
+    "@stryker-mutator/jest-runner": "^5.3.0",
+    "@types/jest": "^27.0.1",
+    "jest": "^27.1.0",
+    "prettier": "2.3.2",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
